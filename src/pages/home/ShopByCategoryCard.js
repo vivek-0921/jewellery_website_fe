@@ -6,7 +6,7 @@ function ShopByCategory() {
     <>
         <ShopByCategoryCard/>
         <Box>
-          asdf
+          asdfgit
         </Box>
     </>
   )
