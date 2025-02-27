@@ -13,14 +13,15 @@ import '../src/assets/index.css'
 import Home from './pages/global/Home';
 import FilterbyCategory from './pages/home/FilterbyCategory';
 import Footer from './pages/global/Footer';
+import Singleproduct from './pages/home/Singleproduct';
 
 function App() {
   return (
     <>
       <Navbar />
-
+<Singleproduct/>
       <Routes>
-        <Route path='/' element={<Home />} />
+        {/* <Route path='/' element={<Home />} /> */}
         <Route path='/account' element={<Account />} />
         <Route path='/filterbycategory' element={<FilterbyCategory />} />
         <Route path='/accountedit' element={<Accountedit />} />
@@ -32,7 +33,7 @@ function App() {
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
 
     </>
   );

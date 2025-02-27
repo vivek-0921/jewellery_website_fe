@@ -5,9 +5,7 @@ function ShopByCategory() {
   return (
     <>
         <ShopByCategoryCard/>
-        <Box>
-          asdfgit
-        </Box>
+        
     </>
   )
 }
