@@ -35,7 +35,7 @@ function App() {
         <Route path='/singleproduct' element={<Singleproduct />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
-        {/* <Route path='/contact' element={<Contactpage/>} /> */}
+        {/* <Route path='/contact' element={<Contactpage`/>} /> */}
       </Routes>
       <Footer />
 
