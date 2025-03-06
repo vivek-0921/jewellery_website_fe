@@ -12,6 +12,12 @@ import img1 from '../../src/assets/images/singleproduct/product1.jpg'
 import img2 from '../../src/assets/images/singleproduct/product2.jpg'
 import img3 from '../../src/assets/images/singleproduct/product3.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import XIcon from '@mui/icons-material/X';
 
 const data = [
     { img: img1 },
@@ -36,68 +42,91 @@ function Singleproductcard() {
                     <Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', opacity: 0.7 }}>Aircraft Hair Pin</Typography>
                 </Box>
             </Box>
-            <Box sx={{ backgroundColor: "#FFF9F4", padding: "100px 60px" }}>
+            <Box sx={{ backgroundColor: "#FFF9F4", padding: {sm:"100px 60px" ,xs:"50px 10px"}}}>
                 <Grid container spacing={2}>
-                    <Grid item md={6}>
+                    <Grid item md={6} xs={12}>
                         <Swiper loop={true} autoplay={{ delay: 2000, disableOnInteraction: false }} speed={2000} modules={[Pagination]} className="mySwiper">
                             {data.map((item, index) => {
                                 return (
                                     <SwiperSlide>
-                                        <Box sx={{ width: "670px", height: "845px", backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
+                                        <Box sx={{ width: {sm:"670px",xs:"370px"}, height: {sm:"845px",xs:"570px"}, backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
                                     </SwiperSlide>
                                 )
                             })}
                         </Swiper>
-                        <Box sx={{ display: "flex" }}>
+                        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                             {data.map((item, index) => {
                                 return (
-                                    <Box sx={{ width: "213px", height: "213px", backgroundImage: `url(${item.img})`, backgroundSize: "cover", margin: "15px 16px 0 0" }}></Box>
+                                    <Box sx={{ width: {sm:"213px",xs:"110px"}, height: {sm:"213px",xs:"150px"}, marginTop: "20px", backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
                                 )
                             })}
                         </Box>
                     </Grid>
 
-                    <Grid item md={6}>
-                        <Typography className='Marcellus' sx={{ fontSize: "43px", fontWeight: "500", marginBottom: "18px" }}>Aircraft Hair Pin</Typography>
-                        <Typography className='Marcellus' sx={{ fontSize: "20px", fontWeight: "500" }}>23.00$ - 25.00$</Typography>
-                        <Box sx={{ margin: "20px 0", display: "flex" }}>
-                            <Rating name="size-medium" defaultValue={3} size="small" style={{ margin: "0 15px 0 0" }} />
-                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "15px" }}>(1 Customer Review) </Typography>
-                        </Box>
-                        <Box sx={{ border: "1px solid #D4D2CF", height: "1px", width: "100%" }}> </Box>
-                        <Box sx={{ color: "#585858", fontSize: "16px", display: "flex", padding: "30px 0 0 0" }}>
-                            <Typography className='Marcellus' sx={{ padding: "0 20px 0 0" }}>SKU: MAUO-158-kj-256-70-1 </Typography>
-                            <Typography className='Marcellus'  >|</Typography>
-                            <Typography className='Marcellus' sx={{ padding: "0 0 0 10px" }}>Available in stock (items)</Typography>
-                        </Box>
-                        <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "16px", margin: "24px 0 35px", lineHeight: "1.5" }}>This 10k Caret Solded features four asymmetric organic hand-cut London Blue Topaz Gold that each have their own unique beauty style.</Typography>
+                    <Grid item md={6} xs={12}>
+                        <Box sx={{padding:{sm:"20px 30px",xs:"40px 30px"}}}>
+                            <Typography className='Marcellus' sx={{ fontSize: {lg:"43px",xs:"38px"} ,fontWeight: "500", marginBottom: "18px" }}>Aircraft Hair Pin</Typography>
+                            <Typography className='Marcellus' sx={{ fontSize: "20px", fontWeight: "500" }}>23.00$ - 25.00$</Typography>
+                            <Box sx={{ margin: "20px 0", display: "flex" }}>
+                                <Rating name="size-medium" defaultValue={3} size="small" style={{ margin: "0 15px 0 0" }} />
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "15px" }}>(1 Customer Review) </Typography>
+                            </Box>
+                            <Box sx={{ border: "1px solid #D4D2CF", height: "1px", width: "100%" }}> </Box>
+                            <Box sx={{ color: "#585858", display: "flex", padding: "30px 0 0 0" }}>
+                                <Typography className='Marcellus' sx={{ padding: "0 20px 0 0", fontSize: {md:"16px",xs:"11px"}}}>SKU: MAUO-158-kj-256-70-1 </Typography>
+                                <Typography className='Marcellus' sx={{fontSize: {md:"16px",xs:"11px"}}}  >|</Typography>
+                                <Typography className='Marcellus' sx={{ padding: "0 0 0 10px" ,fontSize: {md:"16px",xs:"11px"}}}>Available in stock (items)</Typography>
+                            </Box>
+                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"16px",xs:"14px"} ,margin: "24px 0 35px", lineHeight: "1.5" }}>This 10k Caret Solded features four asymmetric organic hand-cut London Blue Topaz Gold that each have their own unique beauty style.</Typography>
 
-                        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "17px", cursor: "pointer" }}>Select Options</Typography>
-                            <Typography className='Marcellus' sx={{ color: "#000", fontSize: "17px", margin: "0 130px 0 0", cursor: "pointer" }}>Diamond Ring</Typography>
-                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "17px" }}>23.00$ - 28.00$</Typography>
-                            <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize: "14px", color: "#008000" }}>20 in Stock</Typography>
+                            <Box sx={{ display: "flex", justifyContent: {sm:"space-between"}, flexWrap:{xs:"wrap"}}}>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"}, cursor: "pointer",margin:{sm:"0 30px 0 0",xs:"0 10px 0 0"} }}>Select Options</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#000", fontSize: {sm:"17px",xs:"10px"}, margin: {sm:"0 90px 0 0",xs:"0 20px 0 0"}, cursor: "pointer" }}>Diamond Ring</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"} ,margin: {xs:"0 4px 0 0"}}}>23.00$ - 28.00$</Typography>
+                                <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize:{sm:"14px",xs:"10px"}, color: "#008000" }}>20 in Stock</Typography>
+                            </Box>
+                            <Box sx={{ border: "1px solid #D4D2CF", margin: "20px 0 0 0", height: "1px", width: "100%" }}></Box>
+
+                            <Box sx={{ display: "flex", justifyContent: {sm:"space-between"},flexWrap:{xs:"wrap"},margin:"20px 0 0 0" }}>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"}, cursor: "pointer", margin:{sm:"0 30px 0 0",xs:"0 10px 0 0"} }}> inc dec</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#000", fontSize: {sm:"17px",xs:"10px"}, margin: {sm:"0 90px 0 0",xs:"0 20px 0 0"}, cursor: "pointer" }}> Gild Hoop Earring</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"} ,margin: {xs:"0 4px 0 0"}}}><strike className='Marcellus'>27.00$</strike> 25.00$</Typography>
+                                <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize: {sm:"14px",xs:"10px"}, color: "#008000" }}>25 in Stock</Typography>
+                            </Box>
+                            <Box sx={{ padding: "20px 0", display: "flex", alignItems: "center" }}>
+                                <Button className='Marcellus' sx={{ backgroundColor: "#000", color: "#fff", borderRadius: "0", textTransform: "capitalize", padding: "6px 28px", fontSize: "17px", fontWeight: "500", transition: "all 0.4s ease", '&:hover': { backgroundColor: "#AC805D", color: "#fff" } }}>Add To Cart</Button>
+                                <Box sx={{ width: "45px", height: "40px", backgroundColor: "#000", margin: "0 0 0 10px", alignItems: "center", justifyContent: "center", display: "flex", '&:hover': { backgroundColor: "#AC805D", color: "#fff", transition: "all 0.4s ease", cursor: "pointer" } }}><FavoriteBorderIcon sx={{ color: "#fff", }} /></Box>
+                            </Box>
+                            <Box sx={{ margin: "15px 10px 10px 0" }}>
+                                <Typography className='Marcellus' sx={{ display: "flex", fontSize: "16px", color: "#585858" }}><TaskAltIcon sx={{ margin: "3px 10px 0 0", fontSize: "16px" }} />Free Delivery & Free Shipping</Typography>
+                            </Box>
+                            <Box sx={{ margin: "15px 10px 10px 0" }}>
+                                <Typography className='Marcellus' sx={{ display: "flex", fontSize: "16px", color: "#585858" }}><TaskAltIcon sx={{ margin: "3px 10px 0 0", fontSize: "16px" }} />Secure Online Payment</Typography>
+                            </Box>
+                            <Box sx={{ border: "1px solid #D4D2CF", margin: "30px 0 ", height: "1px", width: "100%" }}></Box>
+
+                            <Box sx={{ display: {sm:"flex",xs:"block"}, alignItems: "center", justifyContent: {sm:"space-between"}  }}>
+                                <Typography className='Marcellus' sx={{ fontSize: {sm:"24px",xs:"20px"} ,margin:{xs:"0 0 20px 0"}}}>Pick Up Available At Los Angles</Typography>
+                                <Typography className='Marcellus' sx={{ cursor: "pointer", textDecoration: "underline", '&:hover': { color: "#AC805D", transition: "all 0.4s ease" } }}>View store information</Typography>
+                            </Box>
+                            <Box className='Marcellus' sx={{ fontSize: "16px", margin: "15px 0 50px 0", color: "#585858" }}>Usually Ready in 24 Hours</Box>
+                            <Box sx={{ display: "flex" }}>
+                                <Typography className='Marcellus' sx={{ fontSize: "20px", color: "#585858" }}>Share:</Typography>
+                                <Box sx={{ display: "flex", }}>
+                                    <Typography sx={{ textAlign: "center", margin: "2px 9px 0 10px" }}><AlternateEmailIcon /></Typography>
+                                    <Typography sx={{ textAlign: "center", margin: "2px 9px 0 10px" }}><InstagramIcon /></Typography>
+                                    <Typography sx={{ textAlign: "center", margin: "2px 9px 0 10px" }}><FacebookIcon /></Typography>
+                                    <Typography sx={{ textAlign: "center", margin: "2px 9px 0 10px" }}><YouTubeIcon /></Typography>
+                                    <Typography sx={{ textAlign: "center", margin: "2px 9px 0 10px" }}><XIcon /></Typography>
+                                </Box>
+                            </Box>
                         </Box>
-                        <Box sx={{ border: "1px solid #D4D2CF", margin: "20px 0 0 0", height: "1px", width: "100%" }}></Box>
-
-                        <Box sx={{ display: "flex", justifyContent: "space-between", margin: "20px 0 0 " }}>
-
-                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "17px", cursor: "pointer" }}>
-                                inc dec
-                            </Typography>
-                            <Typography className='Marcellus' sx={{ color: "#000", fontSize: "17px", margin: "0 130px 0 0", cursor: "pointer" }}> Gild Hoop Earring</Typography>
-                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: "17px" }}><strike className='Marcellus'  >27.00$</strike> 25.00$</Typography>
-                            <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize: "14px", color: "#008000" }}>25 in Stock</Typography>
-                        </Box>
-                        <Box sx={{ padding: "20px 0" }}>
-                            <Button className='Marcellus' sx={{ backgroundColor: "#000", color: "#fff", borderRadius: "0", textTransform: "capitalize", padding: "6px 28px" , fontSize:"17px", fontWeight:"500",transition: "all 0.5s ease",'&:hover': {backgroundColor: "#AC805D", color: "#fff"} }}>Add To Cart</Button>
-                            <Box sx={{width:"20px" , height:"20px" , backgroundColor:"#000" , }}><FavoriteBorderIcon/></Box>
-                        </Box>
-
-
                     </Grid>
                 </Grid>
             </Box>
+
+
+
 
             <Box>
                 <Tabs value={selectedTab} onChange={handleTabChange} aria-label="product tabs">

@@ -45,6 +45,7 @@ function Navbar() {
                             <Link to={'/page'}><li style={{ display: 'flex', alignItems: 'center', padding: '0 15px' }}>Pages <KeyboardArrowDownIcon /></li></Link>
                             <Link to={'/shop'}><li style={{ display: 'flex', alignItems: 'center', padding: '0 15px' }}>Shop <KeyboardArrowDownIcon /></li></Link>
                             <Link to={'/blog'}><li style={{ display: 'flex', alignItems: 'center', padding: '0 15px' }}>Blog <KeyboardArrowDownIcon /></li></Link>
+                            <Link to={'/blog'}><li style={{ display: 'flex', alignItems: 'center', padding: '0 15px' }}>Contact <KeyboardArrowDownIcon /></li></Link>
                         </ul>
                     </Box>
 
@@ -96,6 +97,7 @@ function Navbar() {
                                     <Link to={'/pages'}><MenuItem onClick={handleCloseNavMenu}>Page <KeyboardArrowDownIcon /></MenuItem></Link>
                                     <Link to={'/shop'}><MenuItem onClick={handleCloseNavMenu}>Shop <KeyboardArrowDownIcon /></MenuItem></Link>
                                     <Link to={'/blog'}><MenuItem onClick={handleCloseNavMenu}>Blog <KeyboardArrowDownIcon /></MenuItem></Link>
+                                    <Link to={'/blog'}><MenuItem onClick={handleCloseNavMenu}>Contact <KeyboardArrowDownIcon /></MenuItem></Link>
                                     <Link to={'/overview'}><MenuItem onClick={handleCloseNavMenu}>Overview <KeyboardArrowDownIcon /></MenuItem></Link>
                                 </FormControl>
                             </Menu>
