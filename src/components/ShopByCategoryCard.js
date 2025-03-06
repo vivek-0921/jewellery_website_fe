@@ -14,19 +14,20 @@ import img10 from '../../src/assets/images/shopbycategory/img10.jpg';
 import img11 from '../../src/assets/images/shopbycategory/img11.jpg';
 import img12 from '../../src/assets/images/shopbycategory/img12.jpg';
 import img13 from '../../src/assets/images/shopbycategory/img13.jpg';
+import { Link } from 'react-router-dom';
 const data = [
-    { img: img2, title: "Mangalsutras" },
-    { img: img3, title: "Gold Coins" },
-    { img: img4, title: "Earrings" },
-    { img: img5, title: "Finger Rings" },
-    { img: img6, title: "Pendants" },
-    { img: img7, title: "Nose Pins" },
-    { img: img8, title: "Chains" },
-    { img: img9, title: "Bracelets" },
-    { img: img10, title: "Bangles" },
-    { img: img11, title: "Neckwear" },
-    { img: img12, title: "Necklace Set" },
-    { img: img13, title: "Pendant Sets" },
+    { img: img2, to: '/filterbycategory', title: "Mangalsutras" },
+    { img: img3, to: '/filterbycategory', title: "Gold Coins" },
+    { img: img4, to: '/filterbycategory', title: "Earrings" },
+    { img: img5, to: '/filterbycategory', title: "Finger Rings" },
+    { img: img6, to: '/filterbycategory', title: "Pendants" },
+    { img: img7, to: '/filterbycategory', title: "Nose Pins" },
+    { img: img8, to: '/filterbycategory', title: "Chains" },
+    { img: img9, to: '/filterbycategory', title: "Bracelets" },
+    { img: img10, to: '/filterbycategory', title: "Bangles" },
+    { img: img11, to: '/filterbycategory', title: "Neckwear" },
+    { img: img12, to: '/filterbycategory', title: "Necklace Set" },
+    { img: img13, to: '/filterbycategory', title: "Pendant Sets" },
 ]
 function ShopByCategoryCard() {
     const IconComponent = img1
@@ -39,19 +40,21 @@ function ShopByCategoryCard() {
                     <Box sx={{ color: "#000" }}>
                         <IconComponent style={{ fill: "currentColor", height: "auto", width: "100%" }} />
                     </Box>
-                    <Box sx={{ display: "flex", flexWrap: 'wrap', margin: {lg:" 0 30px"}, alignItems: "center", justifyContent: "center" }}>
+                    <Box sx={{ display: "flex", flexWrap: 'wrap', alignItems: "center", justifyContent: "center" }}>
                         {data.map((item, index) => {
                             return (
-                                <Box sx={{ width: "176px", height: "100%", margin: {lg:"20px" ,xs:"3px"}, cursor: "pointer", "&:hover": { boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)" } }}>
-                                    <Box sx={{ height: "176px", width: "176px", backgroundImage: `url(${item.img})`, backgroundSize: "cover", }}></Box>
-                                    <Box sx={{ border: "1px solid #E5E1DA" }}>
-                                        <Typography className='Marcellus' sx={{ fontSize: "17px", textAlign: "center", margin: "23px 10px 10px 10px", fontWeight: "600", color: "#832729" }}> {item.title}</Typography>
-                                        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", "&:hover": { color: "#832729" } }}>
-                                            <Typography sx={{ fontSize: "14px", margin: "0 1px 25px 5px", transition: "margin 0.2s ease", "&:hover": { margin: "0 20px 25px 0px" } }}>Explore </Typography>
-                                            <KeyboardArrowRightIcon sx={{ fontSize: "15px", margin: "0 0px 25px 5px", }} />
+                                <Link to={item.to}>
+                                    <Box sx={{ width: "176px", height: "100%", margin: { lg: "20px", xs: "3px" }, cursor: "pointer", "&:hover": { boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)" } }}>
+                                        <Box sx={{ height: "176px", width: "176px", backgroundImage: `url(${item.img})`, backgroundSize: "cover", }}></Box>
+                                        <Box sx={{ border: "1px solid #E5E1DA" }}>
+                                            <Typography className='Marcellus' sx={{ fontSize: "17px", textAlign: "center", margin: "23px 10px 10px 10px", fontWeight: "600", color: "#832729" }}> {item.title}</Typography>
+                                            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", "&:hover": { color: "#832729" } }}>
+                                                <Typography sx={{ fontSize: "14px", margin: "0 1px 25px 5px", transition: "margin 0.2s ease", "&:hover": { margin: "0 20px 25px 0px" } }}>Explore </Typography>
+                                                <KeyboardArrowRightIcon sx={{ fontSize: "15px", margin: "0 0px 25px 5px", }} />
+                                            </Box>
                                         </Box>
                                     </Box>
-                                </Box>
+                                </Link>
                             )
                         })}
                     </Box>

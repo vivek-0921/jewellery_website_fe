@@ -12,37 +12,44 @@ import { Link } from 'react-router-dom'
 
 const products = [
     {
-        to: '/rings',
+        // to: '/rings',
+        to: '/filterbycategory',
         Icon: img1,
         title: 'Rings'
     },
     {
-        to: '/bracelet',
+        // to: '/bracelet',
+        to: '/filterbycategory',
         Icon: img2,
         title: 'Bracelet'
     },
     {
-        to: '/chain',
+        // to: '/chain',
+        to: '/filterbycategory',
         Icon: img3,
         title: 'Chain'
     },
     {
-        to: '/cufflinks',
+        // to: '/cufflinks',
+        to: '/filterbycategory',
         Icon: img4,
         title: 'Cufflinks'
     },
     {
-        to: '/earrings',
+        // to: '/earrings',
+        to: '/filterbycategory',
         Icon: img5,
         title: 'Earrings'
     },
     {
-        to: '/gemstone',
+        // to: '/gemstone',
+        to: '/filterbycategory', to: '/filterbycategory',
         Icon: img6,
         title: 'Gemstone'
     },
     {
-        to: '/gift',
+        // to: '/gift',
+        to: '/filterbycategory',
         Icon: img7,
         title: 'Gift Set'
     },
@@ -53,24 +60,26 @@ function Collectionlist() {
     return (
         <>
             <Box sx={{
-                padding: '100px 50px', display: 'flex', flexWrap: 'wrap', justifyContent: {md:'space-between' ,xs:"none" },
+                padding: '100px 50px', display: 'flex', flexWrap: 'wrap', justifyContent: { md: 'space-between', xs: "none" },
             }}>
                 {
                     products.map((item, index) => {
                         const IconComponent = item.Icon;
                         return (
-                            <Box key={index} sx={{ '&:hover': { color: '#C9A236' }}}>
+
+                            <Box key={index} sx={{ '&:hover': { color: '#C9A236' } }}>
                                 <Link to={item.to} style={{ textDecoration: 'none' }}>
                                     <Box sx={{
-                                        '&:hover': { border: '1px solid #C9A236', backgroundColor: 'white', color: '#353535' },color:'#C9A236' , border: '1px solid white', transition: "0.3s", height: '172px', width: '143px', backgroundColor: '#F5F5F5', display: 'flex', justifyContent: 'center', alignItems: 'center'
+                                        '&:hover': { border: '1px solid #C9A236', backgroundColor: 'white', color: '#353535' }, color: '#C9A236', border: '1px solid white', transition: "0.3s", height: '172px', width: '143px', backgroundColor: '#F5F5F5', display: 'flex', justifyContent: 'center', alignItems: 'center'
                                     }}>
-                                        <IconComponent style={{ fill:'currentcolor' , width: '50%', height: '50%' }} />
+                                        <IconComponent style={{ fill: 'currentcolor', width: '50%', height: '50%' }} />
                                     </Box>
-                                    <Typography sx={{ textAlign: 'center', padding: '10px 0', fontSize: '16px', '&:hover': { color: '#C9A236' }}}>
+                                    <Typography sx={{ textAlign: 'center', padding: '10px 0', fontSize: '16px', '&:hover': { color: '#C9A236' } }}>
                                         {item.title}
                                     </Typography>
                                 </Link>
                             </Box>
+
                         );
                     })
                 }

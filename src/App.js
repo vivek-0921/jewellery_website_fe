@@ -14,14 +14,15 @@ import Home from './pages/global/Home';
 import FilterbyCategory from './pages/home/FilterbyCategory';
 import Footer from './pages/global/Footer';
 import Singleproduct from './pages/home/Singleproduct';
+import Shop from './pages/home/Shop';
 
 function App() {
   return (
     <>
       <Navbar />
-<Singleproduct/>
       <Routes>
-        {/* <Route path='/' element={<Home />} /> */}
+        <Route path='/' element={<Home />} />
+        <Route path='/shop' element={<Shop />} />
         <Route path='/account' element={<Account />} />
         <Route path='/filterbycategory' element={<FilterbyCategory />} />
         <Route path='/accountedit' element={<Accountedit />} />
@@ -30,10 +31,11 @@ function App() {
         <Route path='/whishlist' element={<Wishlist />} />
         <Route path='/coupon' element={<Coupon />} />
         <Route path='/overview' element={<Overview />} />
+        <Route path='/singleproduct' element={<Singleproduct />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
 
     </>
   );

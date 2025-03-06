@@ -48,7 +48,7 @@ function ReviewSlider() {
           <Typography className='Marcellus' style={{ fontWeight: "400", fontSize: { md: "16px", xs: "14px" }, letterSpacing: "3px", margin: "0 0 5px" }}>TESTIMONIAL</Typography>
           <Typography className='Marcellus' sx={{ fontSize: { md: "39px", xs: "25px" }, fontWeight: { md: "600", xs: "600" }, letterSpacing: "3px" }}>Joyful Moments, Told</Typography>
         </Box>
-        <Swiper slidesPerView={3} loop={true} spaceBetween={30} autoplay={{ delay: 2000, disableOnInteraction: false }} speed={2000} pagination={false}
+        <Swiper slidesPerView={3} loop={true} spaceBetween={30} autoplay={{ delay: 3000, disableOnInteraction: false }} speed={3000} pagination={false}
           modules={[Pagination, Autoplay]}
           className="mySwiper"
           breakpoints={{
