@@ -14,8 +14,6 @@ import DiscountIcon from '@mui/icons-material/Discount';
 
 
 function Wishlist() {
-
-
     return (
         <Box sx={{ bgcolor: "white" }}>
             <Container >
