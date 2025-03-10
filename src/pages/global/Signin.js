@@ -62,11 +62,13 @@
 //         </Box>
 //     );
 // }
-
 // export default Signin;
+
 import React, { useState } from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
 import axios from 'axios'
+import img1 from "../../assets/images/Register/img3.jpg"
+
 import { Link, useNavigate } from "react-router-dom";
 function Signin() {
     const [email, setEmail] = useState("");
@@ -79,27 +81,24 @@ function Signin() {
     }
     return (
         <>
-            <Box sx={{ height: "100vh", backgroundColor: "#DCD7C9" }}>
-                <Container>
-                    <Link to="/"><Typography style={{ paddingTop: "10px", fontSize: "15px", fontWeight: "500" }}>Home</Typography></Link>
-                    <Typography></Typography>
-                </Container>
-                <Container sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Box sx={{ width: { lg: "650px", xs: "350px" }, marginTop: "50px", backgroundColor: "rgba(255, 255, 255, 0.25)", boxShadow: "0 8px 30px 0 rgba(31, 38, 135, 0.37)", backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)", borderRadius: "25px", padding: { lg: "10px 50px 25px 50px", sx: "10px" }, border: "1px solid rgba(255, 255, 255, 0.18)" }}>
-                        <Box sx={{ textAlign: "end", margin: "30px 10px " }} >
+            <Box sx={{ height: "100vh", backgroundImage: `url(${img1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+
+                <Container sx={{ display: "flex", alignItems: "start", justifyContent: "start" }}>
+                    <Box sx={{ width: { lg: "450px", xs: "350px" }, marginTop: "50px", backgroundColor: "rgba(255, 255, 255, 0.25)", boxShadow: "0 8px 30px 0 rgba(31, 38, 135, 0.37)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(14px)", borderRadius: "10px", padding: { lg: "10px 30px 25px 30px", sx: "10px" }, border: "2px solid rgba(255, 255, 255, 0.18)" }}>
+                        <Box sx={{ textAlign: "end", margin: "20px 10px " }} >
                             <Link to="/register">
-                                <Button variant="text" style={{ textTransform: "capitalize", color: "black", fontWeight: "bold" }}>Register</Button>
+                                <Button className='Marcellus' variant="text" style={{ textTransform: "capitalize", color: "black", fontWeight: "bold" }}>Register</Button>
                             </Link>
-                            <Button variant="contained" style={{ textTransform: "capitalize", backgroundColor: "black", fontWeight: "bold", borderRadius: "50px" }}>Sign in</Button>
+                            <Button className='Marcellus' variant="contained" style={{ textTransform: "capitalize", backgroundColor: "black", fontWeight: "bold", borderRadius: "50px" }}>Sign in</Button>
                         </Box>
                         <Box sx={{ margin: "30px " }}>
-                            <Typography style={{ fontSize: "45px", fontWeight: "bold", margin: "0 0 10px" }}>Log In</Typography>
-                            <Typography sx={{ fontSize: "14px", margin: "0 0 8px", letterSpacing: "0.5px", fontWeight: "500" }}>Email address * </Typography>
-                            <input type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} style={{ padding: '12px 16px', margin: "0 0 16px", width: "100%" }} />
-                            <Typography sx={{ fontSize: "14px", margin: "0 0 8px", letterSpacing: "0.5px", fontWeight: "500" }}>Password *</Typography>
-                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ padding: '12px 16px', margin: "0 0 16px", width: "100%" }} />
+                            <Typography className='Marcellus' style={{ fontSize: "43px", borderBottom: "1px solid black", marginBottom: "30px", paddingBottom: "10px", fontWeight: "600", margin: "0 0 10px", color: "black" }}>Log In</Typography>
+                            <Typography className='Marcellus' sx={{ fontSize: "15px", color: "white", margin: "0 0 8px", letterSpacing: "0.5px", fontWeight: "500" }}>Email address * </Typography>
+                            <input type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} style={{ borderRadius:"7px" , padding: '12px 16px', margin: "0 0 16px", width: "100%" }} />
+                            <Typography className='Marcellus' sx={{ fontSize: "15px", color: "white", margin: "0 0 8px", letterSpacing: "0.5px", fontWeight: "500" }}>Password *</Typography>
+                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ borderRadius:"7px" , padding: '12px 16px', margin: "0 0 16px", width: "100%" }} />
                             <Box>
-                                <Link to="/login"><Button variant="contained" onClick={handlesubmit} style={{ width: "100%", backgroundColor: "black", borderRadius: "50px", marginTop: "20px" }}>LOG IN</Button></Link></Box>
+                                <Link to="/login"><Button className='Marcellus' variant="contained" onClick={handlesubmit} style={{ width: "100%", backgroundColor: "black", borderRadius: "50px", marginTop: "20px" }}>LOG IN</Button></Link></Box>
                         </Box>
                     </Box>
                 </Container>

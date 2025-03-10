@@ -5,10 +5,14 @@ import img1 from '../../assets/images/Hreosession/main-banner-1.jpg';
 import img2 from '../../assets/images/Hreosession/main-banner-2.jpg';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Box, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const images = [
     {
         img: img1,
+        to: '/filterbycategory',
         title: 'RUBANS  925 STERLING',
         heading1: 'Rubans Morden  Minimal',
         heading2: 'Ring Hoop Earrings',
@@ -17,6 +21,7 @@ const images = [
     },
     {
         img: img2,
+        to: '/filterbycategory',
         title: "THIS WEEK'S HIGHLIGHTS",
         heading1: 'Women In Golden Rings',
         heading2: 'And Necklaces',
@@ -26,9 +31,32 @@ const images = [
 ];
 
 export default function Herosession() {
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        if (swiperRef.current) {
+            const slides = swiperRef.current.querySelectorAll(".swiper-slide");
+
+            slides.forEach((slide) => {
+                gsap.fromTo(
+                    slide,
+                    { opacity: 0, y: 50 }, // Initial state
+                    { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", stagger: 0.3 } // Animation
+                );
+            });
+        }
+    }, []);
     return (
         <>
             <Swiper pagination={false} loop={true} autoplay={{ delay: 3000, disableOnInteraction: false }} modules={[Pagination, Autoplay]} className="mySwiper"
+                onSlideChange={() => {
+                    gsap.fromTo(
+                        ".swiper-slide-active",
+                        { opacity: 0, scale: 0.8 },
+                        { opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
+                    );
+                }}
+                ref={swiperRef}
             >
                 {images.map((item, index) => (
                     <SwiperSlide key={index}>
@@ -48,7 +76,9 @@ export default function Herosession() {
                             <Typography sx={{ fontSize: { md: '17px', sm: '20px', xs: '14px' }, textAlign: 'left', color: 'white', color: 'black', padding: { md: '5px 70px 60px 70px', sm: '10px 400px 10px 15px', xs: '10px 50px 10px 15px' }, opacity: '0.7' }}>
                                 {item.text}
                             </Typography>
-                            <Button sx={{ backgroundColor: '#CE967E', color: 'white', margin: { md: '5px 70px', xs: ' 0 15px ' }, padding: { md: '10px 20px', xs: '5px 10px' }, borderRadius: '0px' }}>SHOP NOW</Button>
+                            <Link to={item.to}>
+                                <Button sx={{ backgroundColor: '#CE967E', color: 'white', margin: { md: '5px 70px', xs: ' 0 15px ' }, padding: { md: '10px 20px', xs: '5px 10px' }, borderRadius: '0px' }}>SHOP NOW</Button>
+                            </Link>
                         </Box>
                     </SwiperSlide>
                 ))}

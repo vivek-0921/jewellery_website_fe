@@ -15,6 +15,7 @@ import FilterbyCategory from './pages/home/FilterbyCategory';
 import Footer from './pages/global/Footer';
 import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
+import Contactpage from './pages/home/Contactpage';
 // import Contactpage from './pages/home/Contactpage';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/account' element={<Account />} />
         <Route path='/filterbycategory' element={<FilterbyCategory />} />
@@ -35,7 +36,7 @@ function App() {
         <Route path='/singleproduct' element={<Singleproduct />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
-        {/* <Route path='/contact' element={<Contactpage`/>} /> */}
+        <Route path='/contact' element={<Contactpage/>} />
       </Routes>
       <Footer />
 
