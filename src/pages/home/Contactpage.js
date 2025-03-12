@@ -7,6 +7,9 @@ import img3 from "../../assets/images/contact/Insta-2.jpg"
 import img2 from "../../assets/images/contact/Insta-4.jpg"
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import RoomIcon from '@mui/icons-material/Room';
+
 
 function Contactpage() {
     const mapRef = useRef(null); // Ref for map container
@@ -26,6 +29,29 @@ function Contactpage() {
             .openPopup();
 
     }, []);
+
+    const blog = [
+        {
+            title1: "Ideal Location",
+            title2: "No: 58 A, East Madison Street,",
+            title3: "Baltimore, MD, USA 4508"
+        },
+        {
+            title1: "Instant Connect",
+            title2: "000 - 123 - 456789",
+            title3: "0000 1234 56789"
+        },
+        {
+            title1: "Our Websites",
+            title2: "www.swarnam.com",
+            title3: "www.swarna.com"
+        },
+        {
+            title1: "Mail Us",
+            title2: "info@example.com",
+            title3: "support@example.com"
+        }
+    ]
 
     return (
         <Box>
@@ -71,13 +97,34 @@ function Contactpage() {
                             <TextField id="outlined-basic" placeholder='Name' variant="outlined" sx={{ width: '100%', borderRadius: "5px", margin: '30px 0px', backgroundColor: "#F5E7D6", '& .MuiOutlinedInput-root': { '&.Mui-focused': { color: 'black', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black', } } } }} />
                             <TextField id="outlined-basic" sx={{ width: '100%', margin: '30px 0px ', backgroundColor: "#F5E7D6", borderRadius: "5px", '& .MuiOutlinedInput-root': { '&.Mui-focused': { color: 'black', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black', } } } }} placeholder='Contact' variant="outlined" />
                             <TextField id="outlined-basic" sx={{ width: '100%', margin: '30px 0px ', backgroundColor: "#F5E7D6", borderRadius: "5px", '& .MuiOutlinedInput-root': { '&.Mui-focused': { color: 'black', '& .MuiOutlinedInput-notchedOutline': { borderColor: 'black', } } } }} placeholder='Message' variant="outlined" />
-                            {/* <Button sx={{borderRadius:'none',backgroundColor:'black' , color:'white'}}>Send Message</Button> */}
+                            <Button variant="contained" className='Marcellus' sx={{ marginTop:"40px" , backgroundColor: "#000", textTransform: "capitalize", fontSize: "18px", borderRadius: "0px", padding: "13px 30px", "&:hover": { backgroundColor: "white" , color:'black' }, transition: "all 0.4s ease" }} >Send Message
+                                <ArrowCircleRightIcon sx={{ margin: "0px 0 0 13px", fontSize: "30px", "&:hover": { fill: "currentColor" } }} />
+                            </Button>
                         </Box>
                     </Grid>
                 </Grid>
                 {/* Map Section */}
                 <Box sx={{ width: '100%', height: '500px', marginTop: '50px' }}>
                     <div ref={mapRef} style={{ width: '100%', height: '100%' }}></div>
+                </Box>
+                <Box sx={{ backgroundColor: "#FFF9F4", padding: "100px 30px" }}>
+                    <Typography className='Marcellus' sx={{ fontSize: "16px", margin: "0 0 4px", letterSpacing: "2px" }}>GET IN TOUCH</Typography>
+                    <Typography className='Marcellus' sx={{ fontSize: "43px", padding: "0 0 60px", fontWeight: "500" }}>Branching Out For You</Typography>
+
+                    <Box sx={{ display: "flex" }}>
+                        {blog.map((item, index) => {
+                            return (
+                                <Box sx={{ display: "flex", margin: "0 20px  0 20px" }}>
+                                    <Box sx={{ height: "74px", width: "74px", backgroundColor: "#ac805d", borderRadius: "50%", padding: '17px', marginRight: '20px', marginTop: "20px" }}><RoomIcon sx={{ color: "#fff", fontSize: "40px" }} /></Box>
+                                    <Box>
+                                        <Typography className='Marcellus' sx={{ fontSize: "27   px", margin: "0 0 10px", fontWeight: "600", opacity: "0.8" }}>{item.title1}</Typography>
+                                        <Typography className='Marcellus' sx={{ fontSize: "17px", color: "#585858" }}>{item.title2} </Typography>
+                                        <Typography className='Marcellus' sx={{ fontSize: "17px", color: "#585858" }}>  {item.title3}</Typography>
+                                    </Box>
+                                </Box>
+                            )
+                        })}
+                    </Box>
                 </Box>
             </Box>
         </Box>

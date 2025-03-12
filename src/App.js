@@ -16,14 +16,12 @@ import Footer from './pages/global/Footer';
 import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
 import Blog from './pages/home/Blog';
-import Extra from './pages/home/Extra';
 import Contactpage from './pages/home/Contactpage';
 
 function App() {
   return (
     <>
       <Navbar />
-      <Extra/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
