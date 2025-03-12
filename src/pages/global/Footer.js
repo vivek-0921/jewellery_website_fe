@@ -30,8 +30,8 @@ const data = [
 ]
 function Footer() {
     return (
-        <>
-            <Box sx={{padding:' 0 0 50px 0'}}>
+        <Box sx={{backgroundColor:"#A87D5B" , marginTop:'-40px'}}>
+            <Box sx={{padding:' 0 0 50px 0'  }}>
             <Container>
                 <Grid container spacing={6} sx={{ marginTop: "40px" }}>
                     <Grid item md={4} xs={12}>
@@ -60,8 +60,9 @@ function Footer() {
                 </Grid>
             </Container>
             </Box>
-        </>
+        </Box>
 
+        
         
     )
 }

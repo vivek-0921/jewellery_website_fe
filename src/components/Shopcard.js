@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Pagination, Typography } from '@mui/material'
+import { Box, Button, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import img1_1 from '../../src/assets/images/shopimg/Marquee-jwell-img-1.jpg'
@@ -24,10 +24,15 @@ import img88 from '../assets/images/newcollection/product-14-2.jpg'
 import img9 from '../assets/images/newcollection/product-15-1.jpg'
 import img99 from '../assets/images/newcollection/product-15-2.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Slider from '@mui/material/Slider';
-import { Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { FreeMode, } from 'swiper/modules';
+import Slider from 'react-slick'
+
+
 
 
 function valuetext(value) {
@@ -138,6 +143,7 @@ const Tags = [
 const products = [
     {
         img: img1,
+        to: "/singleproduct",
         imgg: img11,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -146,6 +152,7 @@ const products = [
     },
     {
         img: img2,
+        to: "/singleproduct",
         imgg: img22,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -154,6 +161,7 @@ const products = [
     },
     {
         img: img3,
+        to: "/singleproduct",
         imgg: img33,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -162,6 +170,7 @@ const products = [
     },
     {
         img: img4,
+        to: "/singleproduct",
         imgg: img44,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -170,6 +179,7 @@ const products = [
     },
     {
         img: img5,
+        to: "/singleproduct",
         imgg: img55,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -178,6 +188,7 @@ const products = [
     },
     {
         img: img6,
+        to: "/singleproduct",
         imgg: img66,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -186,6 +197,7 @@ const products = [
     },
     {
         img: img7,
+        to: "/singleproduct",
         imgg: img77,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -194,6 +206,7 @@ const products = [
     },
     {
         img: img8,
+        to: "/singleproduct",
         imgg: img88,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -202,6 +215,7 @@ const products = [
     },
     {
         img: img9,
+        to: "/singleproduct",
         imgg: img99,
         title: 'Ear Stud , Nose Stud',
         name: 'Pearl Hair Clip',
@@ -229,35 +243,29 @@ function Shopcard() {
                 <Box sx={{ padding: "100px 0 100px 0", backgroundColor: "#F7EBDC" }}>
                     <h1 className='Marcellus' style={{ textAlign: 'center', fontSize: '36px', fontWeight: '500', marginBottom: '10px' }}>Shop</h1>
                     <Box sx={{ display: 'flex', textAlign: 'center', justifyContent: 'center' }}>
-                        <Link to='/'><Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', "&:hover": { color: "#B38A69" }, }}>Home</Typography></Link>
+                        <Link to='/home'><Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', "&:hover": { color: "#B38A69" }, }}>Home</Typography></Link>
                         <Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px' }}>/</Typography>
                         <Typography className='Marcellus' sx={{ marginRight: "3px", "&:hover": { color: "#B38A69" }, fontSize: '15px' }}>Shop</Typography>
                     </Box>
 
                 </Box>
-                {/* <Swiper slidesPerView={3} loop={true} spaceBetween={30} autoplay={{ delay: 3000, disableOnInteraction: false }} speed={3000} pagination={false}
-                    modules={[Pagination, Autoplay]}
-                    className="mySwiper">
-                </Swiper>
-                <SwiperSlide> */}
-                    <Box sx={{ backgroundColor: '#AC805D', height: "auto", width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Box sx={{ backgroundColor: '#AC805D', height: "auto", width: "100%", display: { sm: 'flex', xs: "none" }, justifyContent: 'center', alignItems: 'center' }}>
 
-                        <Box sx={{ fontSize: '20px', fontWeight: '500', color: '#B38A69', display: 'flex' }}>
-                            <Box sx={{ height: '250px', width: '250px', borderRadius: "50%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                {
-                                    lineimg.map((item, index) => {
-                                        return (
-                                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <img src={item.img} style={{ borderRadius: "50%", marginLeft: '40px' }} />
-                                                <Typography className='Marcellus' sx={{ color: 'white', fontSize: "34px", textAlign: "center", marginLeft: "40px" }}>{item.title} </Typography>
-                                            </Box>
-                                        )
-                                    })
-                                }
-                            </Box>
-                        </Box>
-                    </Box>
-                {/* </SwiperSlide> */}
+                    <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} pagination={{ clickable: true }} loop={true} modules={[FreeMode, Autoplay]} className="mySwiper" autoplay={{ delay: 10, disableOnInteraction: false }} speed={8000} >
+                        {lineimg.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <Box sx={{ fontSize: '20px', fontWeight: '500', color: '#B38A69', display: 'flex' }}>
+                                    <Box sx={{ height: '250px', width: '250px', borderRadius: "50%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <img src={item.img} alt={item.title} style={{ borderRadius: "50%", marginLeft: '40px' }} />
+                                        <Typography className='Marcellus' sx={{ color: 'white', fontSize: "34px", textAlign: "center", marginLeft: "40px" }}>
+                                            {item.title}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </Box>
                 <Box sx={{ padding: "50px 0px 50px 20px" }}>
                     <Grid container>
                         <Grid item lg={3} sx={{ backgroundColor: '#F5E7D6' }}>
@@ -340,16 +348,18 @@ function Shopcard() {
                                 products.map((item, index) => {
 
                                     return (
-                                        <Box id='mainbox' sx={{ marginTop: '30px', height: { sm: "529px", xs: '450px' }, width: { sm: "293px", xs: '230px' }, margin: { sm: ' 50px 25px ', xs: '30px 60px' }, pb: 20 }}>
-                                            <Box onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} sx={{ backgroundImage: `url(${hoveredImage === index ? item.imgg : item.img})`, transition: '0.25s', height: "100% ", width: 'auto', backgroundSize: "contain", position: 'relative' }}>
-                                                <Box sx={{ height: '30px', width: "60px", backgroundColor: "#AC805D", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '10px', top: "10px", opacity: '1', transform: 'translateY(0px)', visibility: 'visible', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(10px)', visibility: 'hidden' } }}>Sale</Box>
-                                                <Box sx={{ height: '40px', width: "40px", padding: '3px', backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '19px', top: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "&:hover ": { color: 'white', backgroundColor: "#AC805D" }, "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' } }}><FavoriteBorderIcon sx={{ backgroundColor: "black", color: 'white', "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }} /> </Box>
-                                                <Box sx={{ height: '40px', width: "92%", backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "15px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", left: '10px', bottom: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' }, "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }}>Select Option</Box>
+                                        <Link to={item.to} >
+                                            <Box id='mainbox' sx={{ marginTop: '30px', height: { sm: "529px", xs: '450px' }, width: { sm: "293px", xs: '230px' }, margin: { sm: ' 50px 25px ', xs: '30px 60px' }, pb: 20 }}>
+                                                <Box onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} sx={{ backgroundImage: `url(${hoveredImage === index ? item.imgg : item.img})`, transition: '0.25s', height: "100% ", width: 'auto', backgroundSize: "contain", position: 'relative' }}>
+                                                    <Box sx={{ height: '30px', width: "60px", backgroundColor: "#AC805D", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '10px', top: "10px", opacity: '1', transform: 'translateY(0px)', visibility: 'visible', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(10px)', visibility: 'hidden' } }}>Sale</Box>
+                                                    <Box sx={{ height: '40px', width: "40px", padding: '3px', backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '19px', top: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "&:hover ": { color: 'white', backgroundColor: "#AC805D" }, "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' } }}><FavoriteBorderIcon sx={{ backgroundColor: "black", color: 'white', "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }} /> </Box>
+                                                    <Box sx={{ height: '40px', width: "92%", backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "15px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", left: '10px', bottom: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' }, "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }}>Select Option</Box>
+                                                </Box>
+                                                <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px', color: '#B58D6C' }}>{item.title}</Typography>
+                                                <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '23px', marginTop: '3px' }}>{item.name}</Typography>
+                                                <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px' }}>{item.price}</Typography>
                                             </Box>
-                                            <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px', color: '#B58D6C' }}>{item.title}</Typography>
-                                            <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '23px', marginTop: '3px' }}>{item.name}</Typography>
-                                            <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px' }}>{item.price}</Typography>
-                                        </Box>
+                                        </Link>
 
                                     )
                                 })
@@ -358,6 +368,7 @@ function Shopcard() {
                     </Grid>
                 </Box>
             </Box>
+
         </>
     )
 }

@@ -2,9 +2,9 @@ import { Box, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
 import Rating from '@mui/material/Rating';
 import Avatar from '@mui/material/Avatar';
-import img1 from '../../assets/images/RS1.jpg'
-import img2 from '../../assets/images/RS2.jpg'
-import img3 from '../../assets/images/RS3.jpg'
+import img1 from '../../assets/images/Sliderhome/RS1.jpg'
+import img2 from '../../assets/images/Sliderhome/RS2.jpg'
+import img3 from '../../assets/images/Sliderhome/RS3.jpg'
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';

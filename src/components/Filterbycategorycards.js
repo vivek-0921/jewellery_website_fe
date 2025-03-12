@@ -19,6 +19,7 @@ import img88 from '../assets/images/newcollection/product-14-2.jpg'
 import img9 from '../assets/images/newcollection/product-15-1.jpg'
 import img99 from '../assets/images/newcollection/product-15-2.jpg'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Link } from 'react-router-dom'
 function Filterbycategorycards() {
     const filterbycategory = [
         {
@@ -153,6 +154,7 @@ function Filterbycategorycards() {
     const products = [
         {
             img: img1,
+            to: "/singleproduct",
             imgg: img11,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -161,6 +163,7 @@ function Filterbycategorycards() {
         },
         {
             img: img2,
+            to: "/singleproduct",
             imgg: img22,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -169,6 +172,7 @@ function Filterbycategorycards() {
         },
         {
             img: img3,
+            to: "/singleproduct",
             imgg: img33,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -177,6 +181,7 @@ function Filterbycategorycards() {
         },
         {
             img: img4,
+            to: "/singleproduct",
             imgg: img44,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -185,6 +190,7 @@ function Filterbycategorycards() {
         },
         {
             img: img5,
+            to: "/singleproduct",
             imgg: img55,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -193,6 +199,7 @@ function Filterbycategorycards() {
         },
         {
             img: img6,
+            to: "/singleproduct",
             imgg: img66,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -201,6 +208,7 @@ function Filterbycategorycards() {
         },
         {
             img: img7,
+            to: "/singleproduct",
             imgg: img77,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -209,6 +217,7 @@ function Filterbycategorycards() {
         },
         {
             img: img8,
+            to: "/singleproduct",
             imgg: img88,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -217,6 +226,7 @@ function Filterbycategorycards() {
         },
         {
             img: img9,
+            to: "/singleproduct",
             imgg: img99,
             title: 'Ear Stud , Nose Stud',
             name: 'Pearl Hair Clip',
@@ -404,22 +414,24 @@ function Filterbycategorycards() {
 
                                         return (
 
-                                            <Box id='mainbox' sx={{ border: "1px solid #E5E5E5", marginTop: '30px', height: { sm: "529px", xs: '450px' }, width: { sm: "293px", xs: '230px' }, margin: { sm: ' 50px 25px ', xs: '30px 60px' }, pb: 20 }}>
-                                                <Box onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} sx={{ backgroundImage: `url(${hoveredImage === index ? item.imgg : item.img})`, height: "100% ", width: 'auto', backgroundSize: "contain", position: 'relative' }}>
-                                                    <Box sx={{ height: '30px', width: "60px", backgroundColor: "#AC805D", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '10px', top: "10px", opacity: '1', transform: 'translateY(0px)', visibility: 'visible', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(10px)', visibility: 'hidden' } }}>Sale</Box>
-                                                    <Box sx={{ height: '40px', width: "40px", padding: '3px', backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '19px', top: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "&:hover ": { color: 'white', backgroundColor: "#AC805D" }, "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' } }}><FavoriteBorderIcon sx={{ backgroundColor: "black", color: 'white', "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }} /> </Box>
-                                                    <Box sx={{ height: '40px', width: "92%", backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "15px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", left: '10px', bottom: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' }, "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }}>Select Option</Box>
+                                            <Link to={item.to} >
+                                                <Box id='mainbox' sx={{ border: "1px solid #E5E5E5", marginTop: '30px', height: { sm: "529px", xs: '450px' }, width: { sm: "293px", xs: '230px' }, margin: { sm: ' 50px 25px ', xs: '30px 60px' }, pb: 20 }}>
+                                                    <Box onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} sx={{ backgroundImage: `url(${hoveredImage === index ? item.imgg : item.img})`, height: "100% ", width: 'auto', backgroundSize: "contain", position: 'relative' }}>
+                                                        <Box sx={{ height: '30px', width: "60px", backgroundColor: "#AC805D", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '10px', top: "10px", opacity: '1', transform: 'translateY(0px)', visibility: 'visible', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(10px)', visibility: 'hidden' } }}>Sale</Box>
+                                                        <Box sx={{ height: '40px', width: "40px", padding: '3px', backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "12px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", right: '19px', top: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', '&:hover': { backgroundColor: "#AC805D", color: "#fff", transition: "all 0.1s ease", cursor: "pointer" }, "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' } }}><FavoriteBorderIcon sx={{color: 'white'}} /></Box>
+                                                        <Box sx={{ height: '40px', width: "92%", backgroundColor: "black", color: 'white', textAlign: 'center', fontSize: "15px", display: 'flex', justifyContent: 'center', alignItems: "center", position: "absolute", left: '10px', bottom: "10px", opacity: '0', transform: 'translateY(-7px)', visibility: 'hidden', transition: 'opacity 0.2s ease, transform 0.2s ease', "#mainbox:hover &": { opacity: '1', transform: 'translateY(0px)', visibility: 'visible' }, "&:hover ": { color: 'white', backgroundColor: "#AC805D" } }}>Select Option</Box>
+                                                    </Box>
+                                                    <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px', color: '#B58D6C' }}>{item.title}</Typography>
+                                                    <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '23px', marginTop: '3px' }}>{item.name}</Typography>
+                                                    <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px' }}>{item.price}</Typography>
                                                 </Box>
-                                                <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px', color: '#B58D6C' }}>{item.title}</Typography>
-                                                <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '23px', marginTop: '3px' }}>{item.name}</Typography>
-                                                <Typography className='Marcellus' sx={{ textAlign: 'center', fontSize: '16px', marginTop: '3px' }}>{item.price}</Typography>
-                                            </Box>
+                                            </Link>
 
                                         )
                                     })
                                 }
                             </Box>
-                        </Grid>
+                        </Grid>{}
                     </Grid>
                 </Box>
             </Box>

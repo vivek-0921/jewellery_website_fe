@@ -7,7 +7,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import img1 from '../../assets/images/trial.webp'
+import img1 from '../../assets/images/newcollection/product-9-1.jpg';
 import CloseIcon from '@mui/icons-material/Close';
 import { Opacity } from '@mui/icons-material';
 import DiscountIcon from '@mui/icons-material/Discount';

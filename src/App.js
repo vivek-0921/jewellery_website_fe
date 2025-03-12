@@ -17,6 +17,7 @@ import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
 import Blog from './pages/home/Blog';
 import Extra from './pages/home/Extra';
+import Contactpage from './pages/home/Contactpage';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Navbar />
       <Extra/>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/account' element={<Account />} />
         <Route path='/filterbycategory' element={<FilterbyCategory />} />
@@ -38,7 +39,7 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
-        {/* <Route path='/contact' element={<Contactpage`/>} /> */}
+        <Route path='/contact' element={<Contactpage/>} />
       </Routes>
       <Footer />
       
