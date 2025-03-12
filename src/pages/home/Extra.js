@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ButtonGroup, Button, TextField, Box } from "@mui/material";
 
 function Extra() {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(0);
     return (
         <>
             <Box>

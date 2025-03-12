@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import { ButtonGroup, TextField } from "@mui/material";
 import { Link } from 'react-router-dom'
 import { Container, Paper, Tabs, Tab, Card, CardContent } from '@mui/material';
 import img0 from '../../src/assets/images/singleproduct/singleimg1.jpg'
@@ -26,6 +27,7 @@ const data = [
 ]
 
 function Singleproductcard() {
+    const [quantity, setQuantity] = useState(1);
     const [selectedTab, setSelectedTab] = useState(0);
     const handleTabChange = (event, newValue) => {
         setSelectedTab(newValue);
@@ -35,21 +37,21 @@ function Singleproductcard() {
             <Box sx={{ padding: "100px 0 100px 0", backgroundColor: "#F7EBDC" }}>
                 <h1 className='Marcellus' style={{ textAlign: 'center', fontSize: '36px', fontWeight: '500', marginBottom: '10px' }}>Shop</h1>
                 <Box sx={{ display: 'flex', textAlign: 'center', justifyContent: 'center' }}>
-                    <Link to='/home'><Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', "&:hover": { color: "#B38A69" }, }}>Home</Typography></Link>
+                    <Link to='/'><Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', "&:hover": { color: "#B38A69" }, }}>Home</Typography></Link>
                     <Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px' }}>/</Typography>
                     <Link to='/filterbycategory'><Typography className='Marcellus' sx={{ marginRight: "3px", "&:hover": { color: "#B38A69" }, fontSize: '15px' }}>Pentent</Typography></Link>
                     <Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px' }}>/</Typography>
                     <Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', opacity: 0.7 }}>Aircraft Hair Pin</Typography>
                 </Box>
             </Box>
-            <Box sx={{ backgroundColor: "#FFF9F4", padding: {sm:"100px 60px" ,xs:"50px 10px"}}}>
+            <Box sx={{ backgroundColor: "#FFF9F4", padding: { sm: "100px 60px", xs: "50px 10px" } }}>
                 <Grid container spacing={2}>
                     <Grid item md={6} xs={12}>
                         <Swiper loop={true} autoplay={{ delay: 2000, disableOnInteraction: false }} speed={2000} modules={[Pagination]} className="mySwiper">
                             {data.map((item, index) => {
                                 return (
                                     <SwiperSlide>
-                                        <Box sx={{ width: {sm:"670px",xs:"370px"}, height: {sm:"845px",xs:"570px"}, backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
+                                        <Box sx={{ width: { sm: "670px", xs: "370px" }, height: { sm: "845px", xs: "570px" }, backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
                                     </SwiperSlide>
                                 )
                             })}
@@ -57,15 +59,15 @@ function Singleproductcard() {
                         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                             {data.map((item, index) => {
                                 return (
-                                    <Box sx={{ width: {sm:"213px",xs:"110px"}, height: {sm:"213px",xs:"150px"}, marginTop: "20px", backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
+                                    <Box sx={{ width: { sm: "213px", xs: "110px" }, height: { sm: "213px", xs: "150px" }, marginTop: "20px", backgroundImage: `url(${item.img})`, backgroundSize: "cover" }}></Box>
                                 )
                             })}
                         </Box>
                     </Grid>
 
                     <Grid item md={6} xs={12}>
-                        <Box sx={{padding:{sm:"20px 30px",xs:"40px 30px"}}}>
-                            <Typography className='Marcellus' sx={{ fontSize: {lg:"43px",xs:"38px"} ,fontWeight: "500", marginBottom: "18px" }}>Aircraft Hair Pin</Typography>
+                        <Box sx={{ padding: { sm: "20px 30px", xs: "40px 30px" } }}>
+                            <Typography className='Marcellus' sx={{ fontSize: { lg: "43px", xs: "38px" }, fontWeight: "500", marginBottom: "18px" }}>Aircraft Hair Pin</Typography>
                             <Typography className='Marcellus' sx={{ fontSize: "20px", fontWeight: "500" }}>23.00$ - 25.00$</Typography>
                             <Box sx={{ margin: "20px 0", display: "flex" }}>
                                 <Rating name="size-medium" defaultValue={3} size="small" style={{ margin: "0 15px 0 0" }} />
@@ -73,25 +75,39 @@ function Singleproductcard() {
                             </Box>
                             <Box sx={{ border: "1px solid #D4D2CF", height: "1px", width: "100%" }}> </Box>
                             <Box sx={{ color: "#585858", display: "flex", padding: "30px 0 0 0" }}>
-                                <Typography className='Marcellus' sx={{ padding: "0 20px 0 0", fontSize: {md:"16px",xs:"11px"}}}>SKU: MAUO-158-kj-256-70-1 </Typography>
-                                <Typography className='Marcellus' sx={{fontSize: {md:"16px",xs:"11px"}}}  >|</Typography>
-                                <Typography className='Marcellus' sx={{ padding: "0 0 0 10px" ,fontSize: {md:"16px",xs:"11px"}}}>Available in stock (items)</Typography>
+                                <Typography className='Marcellus' sx={{ padding: "0 20px 0 0", fontSize: { md: "16px", xs: "11px" } }}>SKU: MAUO-158-kj-256-70-1 </Typography>
+                                <Typography className='Marcellus' sx={{ fontSize: { md: "16px", xs: "11px" } }}  >|</Typography>
+                                <Typography className='Marcellus' sx={{ padding: "0 0 0 10px", fontSize: { md: "16px", xs: "11px" } }}>Available in stock (items)</Typography>
                             </Box>
-                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"16px",xs:"14px"} ,margin: "24px 0 35px", lineHeight: "1.5" }}>This 10k Caret Solded features four asymmetric organic hand-cut London Blue Topaz Gold that each have their own unique beauty style.</Typography>
+                            <Typography className='Marcellus' sx={{ color: "#585858", fontSize: { sm: "16px", xs: "14px" }, margin: "24px 0 35px", lineHeight: "1.5" }}>This 10k Caret Solded features four asymmetric organic hand-cut London Blue Topaz Gold that each have their own unique beauty style.</Typography>
 
-                            <Box sx={{ display: "flex", justifyContent: {sm:"space-between"}, flexWrap:{xs:"wrap"}}}>
-                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"}, cursor: "pointer",margin:{sm:"0 30px 0 0",xs:"0 10px 0 0"} }}>Select Options</Typography>
-                                <Typography className='Marcellus' sx={{ color: "#000", fontSize: {sm:"17px",xs:"10px"}, margin: {sm:"0 90px 0 0",xs:"0 20px 0 0"}, cursor: "pointer" }}>Diamond Ring</Typography>
-                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"} ,margin: {xs:"0 4px 0 0"}}}>23.00$ - 28.00$</Typography>
-                                <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize:{sm:"14px",xs:"10px"}, color: "#008000" }}>20 in Stock</Typography>
+                            <Box sx={{ display: "flex", justifyContent: { sm: "space-between" }, flexWrap: { xs: "wrap" } }}>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: { sm: "17px", xs: "10px" }, cursor: "pointer", margin: { sm: "0 30px 0 0", xs: "0 10px 0 0" } }}>Select Options</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#000", fontSize: { sm: "17px", xs: "10px" }, margin: { sm: "0 90px 0 0", xs: "0 20px 0 0" }, cursor: "pointer" }}>Diamond Ring</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: { sm: "17px", xs: "10px" }, margin: { xs: "0 4px 0 0" } }}>23.00$ - 28.00$</Typography>
+                                <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize: { sm: "14px", xs: "10px" }, color: "#008000" }}>20 in Stock</Typography>
                             </Box>
                             <Box sx={{ border: "1px solid #D4D2CF", margin: "20px 0 0 0", height: "1px", width: "100%" }}></Box>
 
-                            <Box sx={{ display: "flex", justifyContent: {sm:"space-between"},flexWrap:{xs:"wrap"},margin:"20px 0 0 0" }}>
-                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"}, cursor: "pointer", margin:{sm:"0 30px 0 0",xs:"0 10px 0 0"} }}> inc dec</Typography>
-                                <Typography className='Marcellus' sx={{ color: "#000", fontSize: {sm:"17px",xs:"10px"}, margin: {sm:"0 90px 0 0",xs:"0 20px 0 0"}, cursor: "pointer" }}> Gild Hoop Earring</Typography>
-                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: {sm:"17px",xs:"10px"} ,margin: {xs:"0 4px 0 0"}}}><strike className='Marcellus'>27.00$</strike> 25.00$</Typography>
-                                <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A", padding: "1px 3px", fontSize: {sm:"14px",xs:"10px"}, color: "#008000" }}>25 in Stock</Typography>
+                            <Box sx={{ display: "flex", justifyContent: { sm: "space-between" }, flexWrap: { xs: "wrap" }, margin: "20px 0 0 0" }}>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: { sm: "17px", xs: "10px" }, cursor: "pointer", margin: { sm: "0 30px 0 0", xs: "0 10px 0 0" } }}>
+                                    <Box>
+                                        <ButtonGroup variant="contained">
+                                            <Button onClick={() => setQuantity(Math.max(1, quantity - 1))} sx={{ backgroundColor: "#fff", color: "#000", border: "1px solid #000", borderRadius: "0px" }}>-</Button>
+                                            <TextField 
+                                                type="number"
+                                                value={quantity}
+                                                onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                                                inputProps={{ min: 1, style: { textAlign: "center", border: "1px solid #000", borderRadius: "0px" } }}
+                                                size="small"
+                                                sx={{ width: 70, textAlign: "center", borderRadius: "0px" }}/>
+                                            <Button onClick={() => setQuantity(quantity + 1)} sx={{ backgroundColor: "#fff", color: "#000", border: "1px solid #000", borderRadius: "0px" }}>+</Button>
+                                        </ButtonGroup>
+                                    </Box>
+                                </Typography>
+                                <Typography className='Marcellus' sx={{ color: "#000", fontSize: { sm: "17px", xs: "10px" }, margin: { sm: "0 1px 0 0", xs: "0 3px 0 0" }, cursor: "pointer" }}> Gild Hoop Earring</Typography>
+                                <Typography className='Marcellus' sx={{ color: "#585858", fontSize: { sm: "17px", xs: "10px" }, margin: { xs: "0 1px 0 0" } }}><strike className='Marcellus'>27.00$</strike> 25.00$</Typography>
+                                <Typography className='Marcellus' sx={{ border: "2px solid #80BD7A" ,fontSize: { sm: "14px", xs: "10px" }, color: "#008000"}}>25 in Stock</Typography>
                             </Box>
                             <Box sx={{ padding: "20px 0", display: "flex", alignItems: "center" }}>
                                 <Button className='Marcellus' sx={{ backgroundColor: "#000", color: "#fff", borderRadius: "0", textTransform: "capitalize", padding: "6px 28px", fontSize: "17px", fontWeight: "500", transition: "all 0.4s ease", '&:hover': { backgroundColor: "#AC805D", color: "#fff" } }}>Add To Cart</Button>
@@ -105,8 +121,8 @@ function Singleproductcard() {
                             </Box>
                             <Box sx={{ border: "1px solid #D4D2CF", margin: "30px 0 ", height: "1px", width: "100%" }}></Box>
 
-                            <Box sx={{ display: {sm:"flex",xs:"block"}, alignItems: "center", justifyContent: {sm:"space-between"}  }}>
-                                <Typography className='Marcellus' sx={{ fontSize: {sm:"24px",xs:"20px"} ,margin:{xs:"0 0 20px 0"}}}>Pick Up Available At Los Angles</Typography>
+                            <Box sx={{ display: { sm: "flex", xs: "block" }, alignItems: "center", justifyContent: { sm: "space-between" } }}>
+                                <Typography className='Marcellus' sx={{ fontSize: { sm: "24px", xs: "20px" }, margin: { xs: "0 0 20px 0" } }}>Pick Up Available At Los Angles</Typography>
                                 <Typography className='Marcellus' sx={{ cursor: "pointer", textDecoration: "underline", '&:hover': { color: "#AC805D", transition: "all 0.4s ease" } }}>View store information</Typography>
                             </Box>
                             <Box className='Marcellus' sx={{ fontSize: "16px", margin: "15px 0 50px 0", color: "#585858" }}>Usually Ready in 24 Hours</Box>

@@ -32,7 +32,7 @@ function Contactpage() {
             <Box sx={{ padding: "100px 0 100px 0", backgroundColor: "#F7EBDC" }}>
                 <h1 className='Marcellus' style={{ textAlign: 'center', fontSize: '36px', fontWeight: '500', marginBottom: '10px' }}>Contact</h1>
                 <Box sx={{ display: 'flex', textAlign: 'center', justifyContent: 'center' }}>
-                    <Link to='/home'><Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', "&:hover": { color: "#B38A69" }, }}>Home</Typography></Link>
+                    <Link to='/'><Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px', "&:hover": { color: "#B38A69" }, }}>Home</Typography></Link>
                     <Typography className='Marcellus' sx={{ marginRight: "3px", fontSize: '15px' }}>/</Typography>
                     <Typography className='Marcellus' sx={{ marginRight: "3px", "&:hover": { color: "#B38A69" }, fontSize: '15px' }}>Contact</Typography>
                 </Box>
