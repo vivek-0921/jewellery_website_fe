@@ -15,7 +15,6 @@ import FilterbyCategory from './pages/home/FilterbyCategory';
 import Footer from './pages/global/Footer';
 import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
-import Contactpage from './pages/home/Contactpage';
 // import Contactpage from './pages/home/Contactpage';
 
 function App() {
@@ -34,6 +33,7 @@ function App() {
         <Route path='/coupon' element={<Coupon />} />
         <Route path='/overview' element={<Overview />} />
         <Route path='/singleproduct' element={<Singleproduct />} />
+        <Route path='/blog' element={<Blog />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
         <Route path='/contact' element={<Contactpage/>} />
