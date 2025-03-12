@@ -15,7 +15,8 @@ import FilterbyCategory from './pages/home/FilterbyCategory';
 import Footer from './pages/global/Footer';
 import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
-// import Contactpage from './pages/home/Contactpage';
+import Blog from './pages/home/Blog';
+import Contactpage from './pages/home/Contactpage';
 
 function App() {
   return (
