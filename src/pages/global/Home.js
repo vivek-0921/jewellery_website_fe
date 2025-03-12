@@ -13,11 +13,8 @@ function Home() {
             <Maincollection />
             <RecentCollections />
             <Video />
-            <ShopByCategory/>
-            <ReviewSlider/>
-            
-
-
+            <ShopByCategory />
+            <ReviewSlider />
         </>
     )
 }

@@ -115,16 +115,16 @@ function Blog() {
 
 
             <Box sx={{ backgroundColor: "#FFF9F4", padding: "100px 30px" }}>
-                <Typography className='Marcellus' sx={{ fontSize: "16px", margin: "0 0 4px", letterSpacing: "2px" }}>GET IN TOUCH</Typography>
+                <Typography className='Marcellus' sx={{ fontSize: "16px", margin: "0 0 4px", letterSpacing: "4px" }}>GET IN TOUCH</Typography>
                 <Typography className='Marcellus' sx={{ fontSize: "43px", padding: "0 0 60px", fontWeight: "500" }}>Branching Out For You</Typography>
 
                 <Box sx={{ display: "flex"  }}>
                     {blog.map((item, index) => {
                         return (
-                            <Box sx={{ display: "flex", margin: "0 20px  0 20px" }}>
+                            <Box sx={{ display: "flex", margin: "0 40px  0 20px" }}>
                                 <Box sx={{ height: "74px", width: "74px", backgroundColor: "#ac805d", borderRadius: "50%", padding: '17px', marginRight: '20px', marginTop: "20px" }}><RoomIcon sx={{ color: "#fff", fontSize: "40px" }} /></Box>
                                 <Box>
-                                    <Typography className='Marcellus' sx={{ fontSize: "27   px", margin: "0 0 10px", fontWeight: "600", opacity: "0.8" }}>{item.title1}</Typography>
+                                    <Typography className='Marcellus' sx={{ fontSize: "27px", margin: "0 0 10px", fontWeight: "600", opacity: "0.8" }}>{item.title1}</Typography>
                                     <Typography className='Marcellus' sx={{ fontSize: "17px", color: "#585858" }}>{item.title2} </Typography>
                                     <Typography className='Marcellus' sx={{ fontSize: "17px", color: "#585858" }}>  {item.title3}</Typography>
                                 </Box>

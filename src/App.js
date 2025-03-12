@@ -16,11 +16,13 @@ import Footer from './pages/global/Footer';
 import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
 import Blog from './pages/home/Blog';
+import Extra from './pages/home/Extra';
 
 function App() {
   return (
     <>
       <Navbar />
+      <Extra/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
@@ -39,6 +41,7 @@ function App() {
         {/* <Route path='/contact' element={<Contactpage`/>} /> */}
       </Routes>
       <Footer />
+      
 
     </>
   );

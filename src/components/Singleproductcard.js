@@ -126,8 +126,6 @@ function Singleproductcard() {
             </Box>
 
 
-
-
             <Box>
                 <Tabs value={selectedTab} onChange={handleTabChange} aria-label="product tabs">
                     <Tab sx={{ margin: '30px 0 10px 10px ', color: '#B38A69' }} label="Description" />

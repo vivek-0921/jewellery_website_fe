@@ -1,6 +1,10 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import React from 'react'
 import img1 from "../../assets/images/Logo.svg";
+
+
+
+
 const data = [
     {
         title: "ACCOUNT",
@@ -57,6 +61,8 @@ function Footer() {
             </Container>
             </Box>
         </>
+
+        
     )
 }
 export default Footer
