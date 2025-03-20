@@ -17,13 +17,19 @@ import Singleproduct from './pages/home/Singleproduct';
 import Shop from './pages/home/Shop';
 import Blog from './pages/home/Blog';
 import Contactpage from './pages/home/Contactpage';
+import Alluser from './admin/Alluser';
+import Adduser from './admin/Adduser';
+import Edituser from './admin/Edituser';
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        {/* <Route path='/' element={<Home />} /> */}
+        <Route path='/' element={<Alluser/>}/>
+        <Route path='/adduser' element={<Adduser/>}/>
+        <Route path='/edituser/:id' element={<Edituser/>}/>
         <Route path='/shop' element={<Shop />} />
         <Route path='/account' element={<Account />} />
         <Route path='/filterbycategory' element={<FilterbyCategory />} />

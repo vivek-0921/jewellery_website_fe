@@ -9,10 +9,11 @@
     "@mui/material": "^6.4.3",
     "@mui/styled-engine-sc": "^6.4.3",
     "@popperjs/core": "^2.11.8",
-    "axios": "^1.7.9",
+    "axios": "^1.8.3",
     "cra-template": "1.2.0",
     "gsap": "^3.12.7",
     "leaflet": "^1.9.4",
+    "nodemon": "^3.1.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
@@ -29,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon index.js"
   },
   "eslintConfig": {
     "extends": [

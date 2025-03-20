@@ -12,11 +12,11 @@ import RoomIcon from '@mui/icons-material/Room';
 
 
 function Contactpage() {
-    const mapRef = useRef(null); // Ref for map container
-    const mapInstance = useRef(null); // Store Leaflet map instance
+    const mapRef = useRef(null); 
+    const mapInstance = useRef(null); 
 
     useEffect(() => {
-        if (!mapRef.current || mapInstance.current) return; // Prevent reinitialization
+        if (!mapRef.current || mapInstance.current) return; 
 
         mapInstance.current = L.map(mapRef.current).setView([28.6139, 77.2090], 13);
 
