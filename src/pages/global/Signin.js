@@ -10,8 +10,7 @@ function Signin() {
     const [email, setEmail] = useState("");
       const [error,setError] = useState("")
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(""); // Add this line
-    const navigate = useNavigate();
+    
     function handlesubmit() {
         axios.post("http://localhost:8080/auth/login", { email, password })
             .then((res) => {
