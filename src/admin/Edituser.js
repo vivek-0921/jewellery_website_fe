@@ -13,14 +13,14 @@ function Edituser() {
 
 
     useEffect(() => {
-        axios.get(`https://674ec223bb559617b26c87d9.mockapi.io/user/${id}`)
+        axios.get(`http://localhost:8080/product/addproduct/${id}`)
             .then((res) => setUserdata(res.data))
             .catch((err) => console.log(err))
     }, [])
 
 
     function handleUpdate() {
-        axios.put(`https://674ec223bb559617b26c87d9.mockapi.io/user/${id}`, userdata)
+        axios.put(`http://localhost:8080/product/addproduct/${id}`, userdata)
             .then(() => { navigate("/") })
             .catch((err) => console.log(err))
     }

@@ -1,91 +1,111 @@
-import { Box, Button } from '@mui/material';
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Box, Button, TextField, Typography } from "@mui/material";
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-function Adduser() {
+function AddUser() {
     const navigate = useNavigate();
     const [userdata, setUserdata] = useState({
         name: "",
-        email: "",
         category: "",
-        price: ""
+        price: "",
     });
     const [image, setImage] = useState(null);
-
+    const [imagePreview, setImagePreview] = useState(null);
+    const [error, setError] = useState("");
 
     function handleFileChange(e) {
         const file = e.target.files[0];
-        setImage(file);
+        if (file) {
+            const fileSize = file.size / 1024 / 1024; // Convert to MB
+            if (fileSize > 2) {
+                setError("File size should be less than 2MB.");
+                return;
+            }
+            setError("");
+            setImage(file);
+            setImagePreview(URL.createObjectURL(file)); // Preview image
+        }
     }
 
     async function handleSubmit() {
-        const formData = new FormData();
-        formData.append("name", userdata.name);
-        formData.append("email", userdata.email);
-        formData.append("category", userdata.category);
-        formData.append("price", userdata.price);
-        if (image) {
-            formData.append("file", image);
+        if (!userdata.name || !userdata.category || !userdata.price || !image) {
+            setError("All fields are required.");
+            return;
         }
 
+        const formData = new FormData();
+        formData.append("name", userdata.name);
+        formData.append("category", userdata.category);
+        formData.append("price", userdata.price);
+        formData.append("image", image);
+
         try {
-            await axios.post("https://674ec223bb559617b26c87d9.mockapi.io/user", formData, {
+            await axios.post("http://localhost:8080/product/addproduct", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
-            navigate("/");
+            navigate("/allproduct");
         } catch (err) {
-            console.log(err);
+            setError("Failed to submit. Please try again.");
+            console.error(err);
         }
     }
 
     return (
-        <Box sx={{ margin: "100px 200px", textAlign: "center" }}>
-            <Box className="mb-3" sx={{ margin: "10px 20px" }}>
-                <label htmlFor="category" className="form-label">Category :</label>
-                <input style={{ margin: "0 0 0 20px", width: "80%" }} type="text" className="form-control"
-                    value={userdata.category}
-                    onChange={(e) => setUserdata({ ...userdata, category: e.target.value })}
-                    id="category" />
+        <Box sx={{ margin: "50px auto", width: "400px", textAlign: "center", padding: "20px", border: "1px solid #ddd", borderRadius: "8px" }}>
+            <Typography variant="h5" mb={2}>Add Product</Typography>
+
+            {error && <Typography color="error">{error}</Typography>}
+
+            <TextField
+                label="Name"
+                fullWidth
+                sx={{ mb: 2 }}
+                value={userdata.name}
+                onChange={(e) => setUserdata({ ...userdata, name: e.target.value })}
+            />
+
+            <TextField
+                label="Category"
+                fullWidth
+                sx={{ mb: 2 }}
+                value={userdata.category}
+                onChange={(e) => setUserdata({ ...userdata, category: e.target.value })}
+            />
+
+            <TextField
+                label="Price"
+                type="text"
+                fullWidth
+                sx={{ mb: 2 }}
+                value={userdata.price}
+                onChange={(e) => setUserdata({ ...userdata, price: e.target.value })}
+            />
+
+            <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                style={{ marginBottom: "10px" }}
+            />
+
+            {imagePreview && (
+                <Box sx={{ mt: 2 }}>
+                    <img src={imagePreview} alt="Preview" width="100" style={{ borderRadius: "8px" }} />
+                </Box>
+            )}
+
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+
+                <Link to={"/allproduct"}>
+                    <Button variant="contained" sx={{ mt: 2 }}>All Product</Button>
+                </Link>
+                <Button variant="contained" sx={{ mt: 2 }} onClick={handleSubmit}>
+                    Submit
+                </Button>
             </Box>
-
-
-            <Box className="mb-3" sx={{ margin: "10px 20px" }}>
-                <label htmlFor="imageUpload" className="form-label">Image :</label>
-                <input type="file" accept="image/*" style={{ margin: "0 0 0 20px", width: "80%" }}
-                    onChange={handleFileChange}
-                    id="imageUpload"  />
-            </Box>
-
-            <Box className="mb-3" sx={{ margin: "10px 20px" }}>
-                <label htmlFor="name" className="form-label">Name :</label>
-                <input style={{ margin: "0 0 0 20px", width: "80%" }} type="text" className="form-control"
-                    value={userdata.name}
-                    onChange={(e) => setUserdata({ ...userdata, name: e.target.value })}
-                    id="name" />
-            </Box>
-
-            <Box className="mb-3" sx={{ margin: "10px 20px" }}>
-                <label htmlFor="email" className="form-label">Price :</label>
-                <input style={{ margin: "0 0 0 20px", width: "80%" }} type="email" className="form-control"
-                    value={userdata.email}
-                    onChange={(e) => setUserdata({ ...userdata, email: e.target.value })}
-                    id="email"  />
-            </Box>
-
-            <Box className="mb-3" sx={{ margin: "10px 20px" }}>
-                <label htmlFor="price" className="form-label">Action :</label>
-                <input style={{ margin: "0 0 0 20px", width: "80%" }} type="text" className="form-control"
-                    value={userdata.price}
-                    onChange={(e) => setUserdata({ ...userdata, price: e.target.value })}
-                    id="price" />
-            </Box>
-
-            <Button variant="contained" style={{ margin: "10px 20px", width: "20%" }} onClick={handleSubmit}>
-                Submit
-            </Button>
         </Box>
     );
 }
 
-export default Adduser;
+export default AddUser;

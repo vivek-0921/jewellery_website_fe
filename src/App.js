@@ -26,10 +26,14 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        {/* <Route path='/' element={<Home />} /> */}
-        <Route path='/' element={<Alluser/>}/>
-        <Route path='/adduser' element={<Adduser/>}/>
-        <Route path='/edituser/:id' element={<Edituser/>}/>
+        <Route path='/' element={<Home />} />
+
+        <Route path='/allproduct' element={<Alluser/>} />
+        <Route path='/addproduct' element={<Adduser/>} />
+        <Route path='/edituser:id' element={<Edituser/>} />
+
+        <Route path='/adduser' element={<Adduser />} />
+        <Route path='/edituser/:id' element={<Edituser />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/account' element={<Account />} />
         <Route path='/filterbycategory' element={<FilterbyCategory />} />
@@ -43,10 +47,10 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
-        <Route path='/contact' element={<Contactpage/>} />
+        <Route path='/contact' element={<Contactpage />} />
       </Routes>
       <Footer />
-      
+
 
     </>
   );

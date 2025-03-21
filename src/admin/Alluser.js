@@ -1,33 +1,41 @@
-import { Padding } from '@mui/icons-material'
-import { Box, Button } from '@mui/material'
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-
+import { Box, Button } from "@mui/material";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Alluser() {
     const [users, setUsers] = useState([])
     const navigate = useNavigate()
 
     function getData() {
-        axios.get("https://674ec223bb559617b26c87d9.mockapi.io/user")
+        axios.get("http://localhost:8080/product/allproduct")
             .then((res) => setUsers(res.data))
-            .catch((err) => console.log(err))
+            .then((err) => console.log(err))
     }
 
     useEffect(() => {
         getData()
     }, [])
 
+    // function handleDelete(id) {
+    //     axios.delete(`http://localhost:8080/product/deleteproduct/${id}`)
+    //         .then(() => { getData(); navigate("/") })
+    //         .catch((err) => console.log(err))
+    // }
     function handleDelete(id) {
-        axios.delete(`https://674ec223bb559617b26c87d9.mockapi.io/user/${id}`)
-            .then(() => { getData(); navigate("/") })
-            .catch((err) => console.log(err))
+        axios.delete(`http://localhost:8080/product/deleteproduct/${id}`)
+            .then(() => {
+                console.log("Product deleted successfully");
+                getData(); // Refresh the list
+            })
+            .catch((err) => {
+                console.error("Error deleting product:", err);
+            });
     }
 
 
     function handleEdit(id) {
-        axios.get(`https://674ec223bb559617b26c87d9.mockapi.io/user/${id}`)
+        axios.get(`http://localhost:8080/product/allproduct/${id}`)
             .then(() => navigate(`/edituser/${id}`))
             .catch((err) => console.log(err))
     }
@@ -56,13 +64,13 @@ function Alluser() {
                         return (
                             <tr>
                                 <td style={{ padding: "10px", border: "1px solid #ccc" }}>{index + 1}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.Category}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.Image}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.Name}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.Price}</td>
+                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.category}</td>
+                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.image}</td>
+                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.name}</td>
+                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.price}</td>
                                 <td style={{ padding: "10px", border: "1px solid #ccc" }}>
-                                    <button className='btn btn-warning' onClick={() => handleEdit(item.id)}>EDIT</button>
-                                    <button className='btn btn-danger' onClick={() => handleDelete(item.id)}>DELETE</button>
+                                    <Button variant="contained" sx={{ backgroundColor: "green", marginRight: "10px" }} onClick={() => handleEdit(item.id)}>EDIT</Button>
+                                    <Button sx={{ color: "red" }} onClick={() => handleDelete(item.id)}>DELETE</Button>
                                 </td>
 
                             </tr>
