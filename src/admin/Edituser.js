@@ -1,11 +1,11 @@
-import {Box, Button, TextField, Typography} from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
-import React, {useEffect, useState} from "react";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-function AddUser() {
+function EditUser() {
+    const { id } = useParams(); // Get product ID from URL
     const navigate = useNavigate();
-    const {id} = useParams();
     const [userdata, setUserdata] = useState({
         name: "",
         category: "",
@@ -16,14 +16,15 @@ function AddUser() {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:8080/product/singleproduct/${id}`)
-            .then((res) => {
-                setUserdata(res.data.data); // ✅ Fix #2: Use res.data.data
-            })
-            .catch((err) => console.log(err));
-    }, []); // ✅ Added `id` as a dependency
-
+        if (id) {
+            axios.get(`http://localhost:8080/product/singleproduct/${id}`)
+                .then((res) => {
+                    setUserdata(res.data.data);
+                    setImagePreview(res.data.data.image); // Show existing image
+                })
+                .catch((err) => console.log(err));
+        }
+    }, [id]); // ✅ Added dependency
 
     function handleFileChange(e) {
         const file = e.target.files[0];
@@ -35,12 +36,12 @@ function AddUser() {
             }
             setError("");
             setImage(file);
-            setImagePreview(URL.createObjectURL(file)); // Preview image
+            setImagePreview(URL.createObjectURL(file)); // Preview new image
         }
     }
 
     async function handleSubmit() {
-        if (!userdata.name || !userdata.category || !userdata.price || !image) {
+        if (!userdata.name || !userdata.category || !userdata.price) {
             setError("All fields are required.");
             return;
         }
@@ -49,15 +50,22 @@ function AddUser() {
         formData.append("name", userdata.name);
         formData.append("category", userdata.category);
         formData.append("price", userdata.price);
-        formData.append("image", image);
+        if (image) {
+            formData.append("image", image); // Append image only if updated
+        }
 
         try {
-            await axios.post("http://localhost:8080/product/addproduct", formData, {
-                headers: {"Content-Type": "multipart/form-data"},
+            await axios.put(`http://localhost:8080/product/updateproduct/${id}`, formData, {
+                headers: { "Content-Type": "multipart/form-data" },
             });
-            navigate("/allproduct");
+
+            // ✅ Fetch the updated product details
+            await axios.get(`http://localhost:8080/product/singleproduct/${id}`)
+                .then((res) => setUserdata(res.data.data));
+
+            navigate("/allproduct"); // ✅ Navigate after updating
         } catch (err) {
-            setError("Failed to submit. Please try again.");
+            setError("Failed to update. Please try again.");
             console.error(err);
         }
     }
@@ -72,58 +80,31 @@ function AddUser() {
             borderRadius: "8px"
         }}>
             <Typography variant="h5" mb={2}>Edit Product</Typography>
-
             {error && <Typography color="error">{error}</Typography>}
 
-            <TextField
-                label="Name"
-                fullWidth
-                sx={{mb: 2}}
-                value={userdata.name}
-                onChange={(e) => setUserdata({...userdata, name: e.target.value})}
+            <TextField label="Name" fullWidth sx={{ mb: 2 }}
+                       value={userdata.name}
+                       onChange={(e) => setUserdata({ ...userdata, name: e.target.value })}
+            />
+            <TextField label="Category" fullWidth sx={{ mb: 2 }}
+                       value={userdata.category}
+                       onChange={(e) => setUserdata({ ...userdata, category: e.target.value })}
+            />
+            <TextField label="Price" type="text" fullWidth sx={{ mb: 2 }}
+                       value={userdata.price}
+                       onChange={(e) => setUserdata({ ...userdata, price: e.target.value })}
             />
 
-            <TextField
-                label="Category"
-                fullWidth
-                sx={{mb: 2}}
-                value={userdata.category}
-                onChange={(e) => setUserdata({...userdata, category: e.target.value})}
-            />
+            <input type="file" accept="image/*" onChange={handleFileChange} style={{ marginBottom: "10px" }} />
 
-            <TextField
-                label="Price"
-                type="text"
-                fullWidth
-                sx={{mb: 2}}
-                value={userdata.price}
-                onChange={(e) => setUserdata({...userdata, price: e.target.value})}
-            />
+            {imagePreview && <Box sx={{ mt: 2 }}><img src={imagePreview} alt="Preview" width="100" /></Box>}
 
-            <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                style={{marginBottom: "10px"}}
-            />
-
-            {imagePreview && (
-                <Box sx={{mt: 2}}>
-                    <img src={imagePreview} alt="Preview" width="100" style={{borderRadius: "8px"}}/>
-                </Box>
-            )}
-
-            <Box sx={{display: "flex", justifyContent: "space-between"}}>
-
-                <Link to={"/allproduct"}>
-                    <Button variant="contained" sx={{mt: 2}}>All Product</Button>
-                </Link>
-                <Button variant="contained" sx={{mt: 2}} onClick={handleSubmit}>
-                    Submit
-                </Button>
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Link to={"/allproduct"}><Button variant="contained" sx={{ mt: 2 }}>All Product</Button></Link>
+                <Button variant="contained" sx={{ mt: 2 }} onClick={handleSubmit}>Update</Button>
             </Box>
         </Box>
     );
 }
 
-export default AddUser;
+export default EditUser;
