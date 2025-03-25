@@ -1,7 +1,7 @@
-import { Box, Button } from "@mui/material";
+import {Box, Button} from "@mui/material";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
 
 function Alluser() {
     const [users, setUsers] = useState([])
@@ -17,22 +17,14 @@ function Alluser() {
         getData()
     }, [])
 
-    // function handleDelete(id) {
-    //     axios.delete(`http://localhost:8080/product/deleteproduct/${id}`)
-    //         .then(() => { getData(); navigate("/") })
-    //         .catch((err) => console.log(err))
-    // }
-    function handleDelete(id) {
-        axios.delete(`http://localhost:8080/product/allproduct/${id}`)
+    async function handleDelete(id) {
+        await axios.delete(`http://localhost:8080/product/deleteproduct/${id}`)
             .then(() => {
-                console.log("Product deleted successfully");
-                getData(); // Refresh the list
+                getData();
+                navigate("/allproduct");
             })
-            .catch((err) => {
-                console.error("Error deleting product:", err);
-            });
+            .catch((err) => console.log(err))
     }
-
 
     function handleEdit(id) {
         axios.get(`http://localhost:8080/product/allproduct/${id}`)
@@ -42,36 +34,44 @@ function Alluser() {
 
     return (
         <Box className='container'>
-            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", p: 6 }}>
+            <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", p: 6}}>
                 <h1>Admin</h1>
                 <Link to="/adduser">
                     <Button variant="contained">Add Product</Button>
                 </Link>
             </Box>
-            <Box sx={{ justifyContent: "center", alignItems: "center", p: 5 }}>
+            <Box sx={{justifyContent: "center", alignItems: "center", p: 5}}>
 
-                <table style={{ padding: "10px", margin: "30px", backgroundColor: "#f0f0f0", width: "100%", borderCollapse: "collapse" }}>
-                    <tr style={{ textAlign: "center", backgroundColor: "#ddd" }}>
-                        <th style={{ padding: "10px", border: "1px solid #ccc" }}>No.</th>
-                        <th style={{ padding: "10px", border: "1px solid #ccc" }}>Category</th>
-                        <th style={{ padding: "10px", border: "1px solid #ccc" }}>Image</th>
-                        <th style={{ padding: "10px", border: "1px solid #ccc" }}>Name</th>
-                        <th style={{ padding: "10px", border: "1px solid #ccc" }}>Price</th>
-                        <th style={{ padding: "10px", border: "1px solid #ccc" }}>Action</th>
+                <table style={{
+                    padding: "10px",
+                    margin: "30px",
+                    backgroundColor: "#f0f0f0",
+                    width: "100%",
+                    borderCollapse: "collapse"
+                }}>
+                    <tr style={{textAlign: "center", backgroundColor: "#ddd"}}>
+                        <th style={{padding: "10px", border: "1px solid #ccc"}}>No.</th>
+                        <th style={{padding: "10px", border: "1px solid #ccc"}}>Category</th>
+                        <th style={{padding: "10px", border: "1px solid #ccc"}}>Image</th>
+                        <th style={{padding: "10px", border: "1px solid #ccc"}}>Name</th>
+                        <th style={{padding: "10px", border: "1px solid #ccc"}}>Price</th>
+                        <th style={{padding: "10px", border: "1px solid #ccc"}}>Action</th>
                     </tr>
 
                     {users.map((item, index) => {
                         return (
                             <tr>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{index + 1}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.category}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.image}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.name}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.price}</td>
-                                <td style={{ padding: "10px", border: "1px solid #ccc" }}>
-                                    <Button variant="contained" sx={{ backgroundColor: "green", marginRight: "10px" }} onClick={() => handleEdit(item.id)}>EDIT</Button>
-                                    <Button sx={{ color: "red" }} onClick={() => handleDelete(item._id)}>DELETE</Button>
+                                <td style={{padding: "10px", border: "1px solid #ccc"}}>{index + 1}</td>
+                                <td style={{padding: "10px", border: "1px solid #ccc"}}>{item.category}</td>
+                                <td style={{padding: "10px", border: "1px solid #ccc"}}>{item.image}</td>
+                                <td style={{padding: "10px", border: "1px solid #ccc"}}>{item.name}</td>
+                                <td style={{padding: "10px", border: "1px solid #ccc"}}>{item.price}</td>
+                                <td style={{padding: "10px", border: "1px solid #ccc"}}>
+                                    <Button variant="contained" sx={{backgroundColor: "green", marginRight: "10px"}}
+                                            onClick={() => handleEdit(item._id)}>EDIT</Button>
+                                    <Button sx={{color: "red"}} onClick={() => handleDelete(item._id)}>DELETE</Button>
                                 </td>
+
                             </tr>
                         )
                     })}
