@@ -1,10 +1,11 @@
 import {Box, Button, TextField, Typography} from "@mui/material";
 import axios from "axios";
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 function AddUser() {
     const navigate = useNavigate();
+    const {id} = useParams();
     const [userdata, setUserdata] = useState({
         name: "",
         category: "",
@@ -70,7 +71,7 @@ function AddUser() {
             border: "1px solid #ddd",
             borderRadius: "8px"
         }}>
-            <Typography variant="h5" mb={2}>Add Product</Typography>
+            <Typography variant="h5" mb={2}>Edit Product</Typography>
 
             {error && <Typography color="error">{error}</Typography>}
 

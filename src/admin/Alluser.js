@@ -27,9 +27,10 @@ function Alluser() {
     }
 
     function handleEdit(id) {
-        axios.get(`http://localhost:8080/product/allproduct/${id}`)
-            .then(() => navigate(`/edituser/${id}`))
-            .catch((err) => console.log(err))
+        navigate(`/edituser/${id}`)
+        // axios.get(`http://localhost:8080/product/allproduct/${id}`)
+        //     // .then(() => navigate(`/edituser/${id}`))
+        //     .catch((err) => console.log(err))
     }
 
     return (
