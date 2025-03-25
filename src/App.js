@@ -29,7 +29,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/allproduct' element={<Alluser/>} />
         <Route path='/addproduct' element={<Adduser/>} />
-        <Route path='/edituser:id' element={<Edituser/>} />
+        <Route path='/edituser/:id' element={<Edituser/>} />
 
         <Route path='/adduser' element={<Adduser />} />
         <Route path='/edituser/:id' element={<Edituser />} />
