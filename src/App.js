@@ -27,7 +27,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-
         <Route path='/allproduct' element={<Alluser/>} />
         <Route path='/addproduct' element={<Adduser/>} />
         <Route path='/edituser:id' element={<Edituser/>} />

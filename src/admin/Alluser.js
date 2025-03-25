@@ -23,7 +23,7 @@ function Alluser() {
     //         .catch((err) => console.log(err))
     // }
     function handleDelete(id) {
-        axios.delete(`http://localhost:8080/product/deleteproduct/${id}`)
+        axios.delete(`http://localhost:8080/product/allproduct/${id}`)
             .then(() => {
                 console.log("Product deleted successfully");
                 getData(); // Refresh the list
@@ -70,9 +70,8 @@ function Alluser() {
                                 <td style={{ padding: "10px", border: "1px solid #ccc" }}>{item.price}</td>
                                 <td style={{ padding: "10px", border: "1px solid #ccc" }}>
                                     <Button variant="contained" sx={{ backgroundColor: "green", marginRight: "10px" }} onClick={() => handleEdit(item.id)}>EDIT</Button>
-                                    <Button sx={{ color: "red" }} onClick={() => handleDelete(item.id)}>DELETE</Button>
+                                    <Button sx={{ color: "red" }} onClick={() => handleDelete(item._id)}>DELETE</Button>
                                 </td>
-
                             </tr>
                         )
                     })}
