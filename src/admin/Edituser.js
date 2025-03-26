@@ -40,6 +40,8 @@ function EditUser() {
         }
     }
 
+
+
     async function handleSubmit() {
         if (!userdata.name || !userdata.category || !userdata.price) {
             setError("All fields are required.");
@@ -50,6 +52,7 @@ function EditUser() {
         formData.append("name", userdata.name);
         formData.append("category", userdata.category);
         formData.append("price", userdata.price);
+
         if (image) {
             formData.append("image", image); // Append image only if updated
         }
@@ -59,16 +62,14 @@ function EditUser() {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
-            // ✅ Fetch the updated product details
-            await axios.get(`http://localhost:8080/product/singleproduct/${id}`)
-                .then((res) => setUserdata(res.data.data));
-
-            navigate("/allproduct"); // ✅ Navigate after updating
+            navigate("/allproduct"); // Navigate after update
         } catch (err) {
             setError("Failed to update. Please try again.");
             console.error(err);
         }
     }
+
+
 
     return (
         <Box sx={{
