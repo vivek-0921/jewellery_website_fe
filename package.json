@@ -11,6 +11,7 @@
     "@popperjs/core": "^2.11.8",
     "axios": "^1.8.3",
     "cra-template": "1.2.0",
+    "dotenv": "^16.4.7",
     "gsap": "^3.12.7",
     "leaflet": "^1.9.4",
     "nodemon": "^3.1.9",
@@ -53,7 +54,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
